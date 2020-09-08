@@ -11,11 +11,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ArticlesComponent } from './articles/articles.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    ArticlesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,10 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
