@@ -8,13 +8,23 @@ import { map } from 'rxjs/operators';
 })
 export class WebRequestService {
 
-  API_KEY = 'your key';
+  API_KEY = 'YOUR API KEY';
 
   constructor(private http: HttpClient) { }
 
   getPlArticles(): Observable<object> {
     return this.http.get(
       `https://newsapi.org/v2/top-headlines?country=pl&apiKey=${this.API_KEY}`
+    ).pipe(
+      map(
+        (data: any) => data.articles
+      )
+    );
+  }
+
+  searchArticle(search: string): Observable<object>{
+    return this.http.get(
+      `https://newsapi.org/v2/everything?q=${search}&apiKey=${this.API_KEY}`
     ).pipe(
       map(
         (data: any) => data.articles

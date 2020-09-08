@@ -15,11 +15,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ArticlesComponent } from './articles/articles.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
+import { SearchComponent } from './search/search.component';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +41,10 @@ import {MatCardModule} from '@angular/material/card';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

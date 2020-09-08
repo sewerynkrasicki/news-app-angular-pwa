@@ -25,4 +25,12 @@ export class ArticlesComponent implements OnInit {
     window.open(url, '_blank');
   }
 
+  searchInfo(q: string): void{
+    this.loading = true;
+    this.webRequest.searchArticle(q).subscribe(response => {
+      this.articles = response;
+      this.loading = false;
+    });
+  }
+
 }

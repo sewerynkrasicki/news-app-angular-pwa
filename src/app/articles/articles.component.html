@@ -2,6 +2,7 @@
     <mat-spinner></mat-spinner>
 </div>
 <ng-template #loaded>
+    <app-search (getValue)="searchInfo($event)" class="loading"></app-search>
     <mat-card *ngFor="let article of articles" class="example-card" (click)="navigate(article.url)">
         <mat-card-header>
           <mat-card-title>{{ article.title }}</mat-card-title>

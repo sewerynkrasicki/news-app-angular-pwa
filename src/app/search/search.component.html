@@ -1,0 +1,9 @@
+<form #form="ngForm" [formGroup]="searchForm" (keydown.enter)="sendValue()">
+    <mat-form-field class="example-form-field">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" formControlName="search">
+        <button mat-button *ngIf="searchForm.get('search')" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+        <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</form>
