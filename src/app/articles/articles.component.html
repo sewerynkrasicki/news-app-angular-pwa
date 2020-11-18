@@ -1,18 +1,20 @@
-<div class="loading" *ngIf="loading else loaded">
-    <mat-spinner></mat-spinner>
+<div class="container">
+    <div class="loading" *ngIf="loading else loaded">
+      <mat-spinner></mat-spinner>
+    </div>
+    <ng-template #loaded>
+        <app-search (getValue)="searchInfo($event)" class="loading"></app-search>
+        <mat-card *ngFor="let article of articles" class="example-card" (click)="navigate(article.url)">
+            <mat-card-header>
+              <mat-card-title>{{ article.title }}</mat-card-title>
+              <mat-card-subtitle> {{ article.author }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="article.urlToImage" onError="this.src='../../assets/not-found.png'">
+            <mat-card-content>
+              <p>
+                {{ article.description }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+    </ng-template>
 </div>
-<ng-template #loaded>
-    <app-search (getValue)="searchInfo($event)" class="loading"></app-search>
-    <mat-card *ngFor="let article of articles" class="example-card" (click)="navigate(article.url)">
-        <mat-card-header>
-          <mat-card-title>{{ article.title }}</mat-card-title>
-          <mat-card-subtitle> {{ article.author }}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image [src]="article.urlToImage" onError="this.src='../../assets/not-found.png'">
-        <mat-card-content>
-          <p>
-            {{ article.description }}
-          </p>
-        </mat-card-content>
-      </mat-card>
-</ng-template>
